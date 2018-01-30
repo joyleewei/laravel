@@ -77,8 +77,8 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
-    'locale' => 'en',
+    // 语言选择
+    'locale' => 'zh-CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -227,6 +227,5 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-    'locale' => 'zh-CN',
 
 ];

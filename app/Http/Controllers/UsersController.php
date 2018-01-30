@@ -32,8 +32,11 @@ class UsersController extends Controller{
             'email'=>$request->email,
             'password'=>bcrypt($request->password)
         ));
+        // 闪存
         session()->flash('success', '欢迎，您将在这里开启一段新的旅程~');
         return redirect()->route('users.show',[$user]);
+        // 与下面这句等同
+        // return redirect()->route('users.show',[$user->id]);
     }
 
     // 编辑用户信息页面
