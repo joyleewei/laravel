@@ -41,8 +41,8 @@ class UsersController extends Controller{
     }
 
     // 编辑用户信息页面
-    public function edit(){
-
+    public function edit(User $user){
+        return view('users.edit',compact('user'));
     }
 
     // 更新用户
