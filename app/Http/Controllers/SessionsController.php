@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-
+// 用户登陆与退出
 class SessionsController extends Controller{
 
     public function create(){

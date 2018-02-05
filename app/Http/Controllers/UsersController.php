@@ -32,7 +32,10 @@ class UsersController extends Controller{
             'email'=>$request->email,
             'password'=>bcrypt($request->password)
         ));
+
+        // 用户注册后自动登陆
         Auth::login($user);
+
         // 闪存
         session()->flash('success', '欢迎，您将在这里开启一段新的旅程~');
         return redirect()->route('users.show',[$user]);
