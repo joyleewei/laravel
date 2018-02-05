@@ -15,7 +15,6 @@
                     <img src="{{ $user->gravatar('200') }}" alt="{{ $user->name }}" class="gravatar" />
                 </a>
             </div>
-
             <form method="post" action="{{ route('users.update',$user->id) }}">
                 {{ csrf_field() }}
                 {{ method_field('PATCH') }}
