@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -24,7 +23,11 @@ class UsersController extends Controller{
 
     // 显示用户信息
     public function show(User $user){
-        return view('users.show',compact('user'));
+        $statuses = $user->statuses()
+                    ->orderBy('created_at','desc')
+                    ->paginate(30);
+
+        return view('users.show',compact('user','statuses'));
     }
 
     //创建用户页面

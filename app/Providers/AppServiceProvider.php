@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Carbon\Carbon;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -15,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // mysql 版本低于5.7 ，设置长度
         Schema::defaultStringLength(191);
+        Carbon::setLocale('zh');
     }
 
     /**
