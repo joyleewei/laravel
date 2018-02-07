@@ -21,3 +21,14 @@ Route::resource('users', 'UsersController');
 Route::get('/login','SessionsController@create')->name('login');
 Route::post('/login','SessionsController@store')->name('login');
 Route::delete('/logout','SessionsController@destroy')->name('logout');
+Route::get('/signup/confirm/{token}','UsersController@confirmEmail')->name('confirm_email');
+
+// laravel 内置的忘记密码
+// 忘记密码页面：显示重置密码的邮箱发送页面
+Route::get('/password/reset','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+// 忘记密码页面-post: 想qq 邮箱发送一封邮件
+Route::post('/password/email','Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+// 密码重置页面
+Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+// 密码重置页面-post: 执行密码更新操作
+Route::post('/password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
